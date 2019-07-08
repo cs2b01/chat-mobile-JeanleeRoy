@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         // 4. Sending json message to Server
         JsonObjectRequest request = new JsonObjectRequest(
             Request.Method.POST,
-            "http://10.100.227.201:8080/authenticate",
+            "http://10.100.226.102:8080/authenticate",
             jsonMessage,
             new Response.Listener<JSONObject>() {
                 @Override

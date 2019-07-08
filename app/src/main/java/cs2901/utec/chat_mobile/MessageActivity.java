@@ -55,7 +55,7 @@ public class MessageActivity extends AppCompatActivity {
     public void getChats(){
         final String userFromId = getIntent().getExtras().get("user_from_id").toString();
         String userToId = getIntent().getExtras().get("user_to_id").toString();
-        String url = "http://10.100.227.201:8080/chats/<user_from_id>/<user_to_id>";
+        String url = "http://10.100.226.102:8080/chats/<user_from_id>/<user_to_id>";
         url = url.replace("<user_from_id>", userFromId);
         url = url.replace("<user_to_id>", userToId);
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -88,7 +88,7 @@ public class MessageActivity extends AppCompatActivity {
     }
 
     public void postMessage(){
-        String url = "http://10.100.227.201:8080/messages";
+        String url = "http://10.100.226.102:8080/messages";
         RequestQueue queue = Volley.newRequestQueue(this);
         Map<String, String> params = new HashMap();
         final String user_from_id = getIntent().getExtras().get("user_from_id").toString();
@@ -105,13 +105,12 @@ public class MessageActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        // TODO
+                        getChats();
                     }
                 }, new Response.ErrorListener() {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                // TODO: Handle error
                 error.printStackTrace();
 
             }
